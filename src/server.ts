@@ -4,6 +4,7 @@ import { Query } from "express-serve-static-core";
 import mongoose from "mongoose";
 //const Product = require('./model/user.type.ts');
 import Product from "./model/user.type";
+import cors from 'cors';
 
 // ระบุ Type
 export interface TypedRequestQuery<T extends Query> extends Express.Request {
@@ -24,7 +25,7 @@ app.set('view engine', 'jade');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
+app.use(cors());
 app.get("/", (req, res) => {
     res.json({ result: "ok 1234" })
 })
@@ -37,6 +38,17 @@ app.get('/products', async (req: Request, res: Response, next: NextFunction) => 
         .catch((err) => {
             return next(err);
         });
+});
+
+
+app.get('/products/:id', async (req: Request, res: Response, next: NextFunction) => {
+    Product.findById(req.params.id)
+    .then(post => {
+        res.json(post);
+    })
+    .catch(err => {
+        next(err);
+    });
 });
 
 // app.get("/login", (req: TypedRequestQuery<User>, res: Response) => {

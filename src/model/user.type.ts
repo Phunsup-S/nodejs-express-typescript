@@ -2,18 +2,28 @@ import mongoose from "mongoose";
 
 
 const ProductSchema  = new mongoose.Schema({
-    prod_name: {
+    
+    img_url: {
+        type:String,
+        default: "none"
+    },
+    album_name: {
         type:String,
         require:true
     },
-    prod_desc:  {
+    album_desc:  {
         type:String,
         require:true
     },
-    prod_price:  {
-        type:Number,
+    year_released:  {
+        type:String,
         require:true
     },
+    album_price:{
+        type: Number,
+        require:true
+    }
+    ,
     update_at: { type: Date, default: Date.now },
 });
 export default mongoose.model("Product", ProductSchema) ;
