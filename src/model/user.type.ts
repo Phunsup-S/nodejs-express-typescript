@@ -22,8 +22,13 @@ const ProductSchema  = new mongoose.Schema({
     album_price:{
         type: Number,
         require:true
-    }
-    ,
+    },
+    youtube_link:{
+        type:String
+    },
+    spotify_link:{
+        type:String
+    },
     update_at: { type: Date, default: Date.now },
 });
 export default mongoose.model("Product", ProductSchema) ;

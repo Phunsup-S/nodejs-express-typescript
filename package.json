@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev src/server.ts",
+    "start": "ts-node-dev src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "@types/mongoose": "^5.11.97",
     "cors": "^2.8.5",
@@ -26,5 +25,6 @@
     "jade": "~1.11.0",
     "mongoose": "^8.3.4",
     "morgan": "~1.9.1"
-  }
+  },
+  "description": ""
 }
