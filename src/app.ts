@@ -93,4 +93,5 @@ app.delete('/products/:id', (req: Request, res: Response, next: NextFunction) =>
 });
 
 
-app.listen(3000, () => console.log("Server is runing..."));
+app.listen(3001, () => console.log("Server is runing..."));
+module.exports = app;
